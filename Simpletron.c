@@ -114,9 +114,9 @@ exit(0);
 
 
 void run(){
-    for(int x = 0; x < 100; x++){
-        int command = (arr[x]-(arr[x]%100))/100;
-        int location = getLocation(arr[x]);
+    for(instructionCounter = 0; instructionCounter < 100; instructionCounter++){
+        int command = (arr[instructionCounter]-(arr[instructionCounter]%100))/100;
+        int location = getLocation(arr[instructionCounter]);
         switch(command){
             case 10:
                 read(location);
