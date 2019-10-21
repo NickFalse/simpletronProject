@@ -161,6 +161,7 @@ printf("        0        1        2        3        4        5        6        7
 //This loops through the array, printing the 4-digit int at the index. This loop also does some formatting so that it looks nice.
 for(int x = 0; x < 100; x++){
 
+
 if(x == 0){
 printf("\n %d", x);//making first row align properly
 }
