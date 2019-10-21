@@ -22,22 +22,24 @@ int getLocation(int command){
     return command%100;
 }
 void read(int location){
-
+    int i;
+    scanf("enter a number: %d",&i);
+    arr[location]=i;
 }
 void write(int location){
-
+    printf("info is %d",arr[location]);
 }
 void load(int location){
-
+    accumulator=arr[location];
 }
 void store(int location){
-    
+    arr[location]=accumulator;
 }
 void add(int location){
-    
+    accumulator=arr[location]+accumulator;
 }
 void subtract(int location){
-    
+    accumulator=accumulator-arr[location];
 }
 void divide(int location){
     
@@ -64,7 +66,9 @@ void halt(int location){
 void run(){
     for(int x = 0; x < 100; x++){
         int command = (arr[x]-(arr[x]%100)/100;
+        operationCode=command;
         int location = getLocation(arr[x]);
+        operand=location;
         switch(command){
             case 10:
                 read(location);
