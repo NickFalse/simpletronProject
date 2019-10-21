@@ -66,7 +66,44 @@ void run(){
         int command = (arr[x]-(arr[x]%100)/100;
         int location = getLocation(arr[x]);
         switch(command){
-            
+            case 10:
+                read(location);
+                break;
+            case 11:
+                break;
+                write(location);
+            case 20:
+                load(location);
+                break;
+            case 21:
+                store(location);
+                break;
+            case 30:
+                add(location);
+                break;
+            case 31:
+                subtract(location);
+                break;
+            case 32:
+                divide(location);
+                break;
+            case 33:
+                multiply(location);
+                break;
+            case 40:
+                branch(location);
+                break;
+            case 41:
+                branchneg(location);
+                break;
+            case 42:
+                branchzero(location);
+                break;
+            case 43:
+                halt(location);
+                break;
+            default: printf("pissoff\n");
+                break;
         }
 
     }
