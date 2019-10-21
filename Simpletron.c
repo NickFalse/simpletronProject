@@ -58,22 +58,26 @@ printf("\n");
 }//End of dump() method
 
 void read(int location){
-
+    int i;
+    printf("enter a number");
+    scanf("%d",&i);
+    printf("value is %d",i);
+    arr[location]=i;
 }
 void write(int location){
-
+    printf("info is %d",arr[location]);
 }
 void load(int location){
-
+    accumulator=arr[location];
 }
 void store(int location){
-
+    arr[location]=accumulator;
 }
 void add(int location){
-
+    accumulator=arr[location]+accumulator;
 }
 void subtract(int location){
-
+    accumulator=accumulator-arr[location];
 }
 void divide(int location){
 int temp = arr[location];
