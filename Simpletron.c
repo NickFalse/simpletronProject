@@ -18,7 +18,59 @@ int instructionCounter = 0;
 int instructionRegister = 0;
 int operationCode = 0;
 int operand = 0;
+int getLocation(int command){
+    return command%100;
+}
+void read(int location){
 
+}
+void write(int location){
+
+}
+void load(int location){
+
+}
+void store(int location){
+    
+}
+void add(int location){
+    
+}
+void subtract(int location){
+    
+}
+void divide(int location){
+    
+}
+void multiply(int location){
+    
+}
+void branch(int location){
+    
+}
+void branchneg(int location){
+    
+}
+void branchzero(int location){
+    
+}
+void halt(int location){
+    
+}
+
+
+
+
+void run(){
+    for(int x = 0; x < 100; x++){
+        int command = (arr[x]-(arr[x]%100)/100;
+        int location = getLocation(arr[x]);
+        switch(command){
+            
+        }
+
+    }
+}
 //intro() method prints out the introductory statements
 void intro(){
 printf("\n*** Welcome to Simpletron! ***\n*** Please enter your program one instruction ***\n*** (or data word) at a time. I will display ***\n*** the location number and a question mark (?) ***\n*** You then type the word for that location. ***\n*** Type -99999 to stop entering your program. ***\n\n");
