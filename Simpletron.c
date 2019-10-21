@@ -65,7 +65,7 @@ void halt(int location){
 
 void run(){
     for(int x = 0; x < 100; x++){
-        int command = (arr[x]-(arr[x]%100)/100;
+        int command = (arr[x]-(arr[x]%100))/100;
         operationCode=command;
         int location = getLocation(arr[x]);
         operand=location;
@@ -181,4 +181,5 @@ int main(int argc, char *argv[]) {
 intro();
 input();
 dump();
+run();
  }
