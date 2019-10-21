@@ -23,7 +23,9 @@ int getLocation(int command){
 }
 void read(int location){
     int i;
-    scanf("enter a number: %d",&i);
+    printf("enter a number");
+    scanf("%d",&i);
+    printf("value is %d",i);
     arr[location]=i;
 }
 void write(int location){
@@ -106,7 +108,7 @@ void run(){
             case 43:
                 halt(location);
                 break;
-            default: printf("pissoff\n");
+            default: //printf("pissoff%d\n", command);
                 break;
         }
 
@@ -182,4 +184,5 @@ intro();
 input();
 dump();
 run();
+dump();
  }
