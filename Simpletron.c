@@ -184,8 +184,6 @@ printf("\n*** Program loading completed ***\n*** Program execution begins ***\n"
 }
 
 
-
-
 //Main Method
 int main(int argc, char *argv[]) {
 intro();
