@@ -21,7 +21,7 @@ int operand = 0;
 int getLocation(int command){
     return command%100;
 }
-
+//testcomment
 
 //Dump Method displays all of the data from the simpletron
 void dump(){
