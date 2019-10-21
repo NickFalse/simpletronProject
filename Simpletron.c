@@ -21,56 +21,98 @@ int operand = 0;
 int getLocation(int command){
     return command%100;
 }
+
+
+//Dump Method displays all of the data from the simpletron
+void dump(){
+
+//prints variables
+printf("\n\n");
+printf("REGISTERS:\n");
+printf("accumulator:         %04d\n", accumulator);
+printf("instructionCounter     %02d\n", instructionCounter);
+printf("instructionRegister  %04d\n", instructionRegister);
+printf("operationCode          %02d\n", operationCode);
+printf("operand                %02d\n", operand);
+printf("\n\n");
+
+
+//Prints column numbers
+printf("        0        1        2        3        4        5        6        7        8        9\n");
+
+//This loops through the array, printing the 4-digit int at the index. This loop also does some formatting so that it loo$
+for(int x = 0; x < 100; x++){
+
+if(x == 0){
+printf("\n %d", x);//making first row align properly
+}
+
+if(x % 10 == 0 && x != 0){//prints row numbers
+printf("\n%d", x);
+}
+
+printf("   %04d  ",arr[x]);
+
+}//end of for loop
+printf("\n");
+}//End of dump() method
+
 void read(int location){
-    int i;
-    printf("enter a number");
-    scanf("%d",&i);
-    printf("value is %d",i);
-    arr[location]=i;
+
 }
 void write(int location){
-    printf("info is %d",arr[location]);
+
 }
 void load(int location){
-    accumulator=arr[location];
+
 }
 void store(int location){
-    arr[location]=accumulator;
+
 }
 void add(int location){
-    accumulator=arr[location]+accumulator;
+
 }
 void subtract(int location){
-    accumulator=accumulator-arr[location];
+
 }
 void divide(int location){
-    
+int temp = arr[location];
+temp = temp / accumulator;
+accumulator = temp;
 }
 void multiply(int location){
-    
+int temp = arr[location];
+temp = temp * accumulator;
+accumulator = temp;
 }
 void branch(int location){
-    
+instructionCounter = location;
 }
 void branchneg(int location){
-    
+if(accumulator < 0){
+instructionCounter = location;
+}
 }
 void branchzero(int location){
-    
+if(accumulator == 0){
+instructionCounter = location;
 }
+}
+
+//halt() method halts the program. it is done.
 void halt(int location){
-    
+dump();
+exit(0);
 }
+
 
 
 
 
 void run(){
     for(int x = 0; x < 100; x++){
-        int command = (arr[x]-(arr[x]%100))/100;
-        operationCode=command;
+        int command = (arr[x]-(arr[x]%100)/100;
         int location = getLocation(arr[x]);
-        operand=location;
         switch(command){
             case 10:
                 read(location);
@@ -108,12 +150,13 @@ void run(){
             case 43:
                 halt(location);
                 break;
-            default: //printf("pissoff%d\n", command);
+            default: printf("pissoff\n");
                 break;
         }
 
     }
 }
+
 //intro() method prints out the introductory statements
 void intro(){
 printf("\n*** Welcome to Simpletron! ***\n*** Please enter your program one instruction ***\n*** (or data word) at a time. I will display ***\n*** the location number and a question mark (?) ***\n*** You then type the word for that location. ***\n*** Type -99999 to stop entering your program. ***\n\n");
@@ -141,49 +184,9 @@ printf("\n*** Program loading completed ***\n*** Program execution begins ***\n"
 }
 
 
-//Dump Method displays all of the data from the simpletron
-void dump(){
-
-//prints variables
-printf("\n\n");
-printf("REGISTERS:\n");
-printf("accumulator:         %04d\n", accumulator);
-printf("instructionCounter     %02d\n", instructionCounter);
-printf("instructionRegister  %04d\n", instructionRegister);
-printf("operationCode          %02d\n", operationCode);
-printf("operand                %02d\n", operand);
-printf("\n\n");
-
-
-//Prints column numbers
-printf("        0        1        2        3        4        5        6        7        8        9\n");
-
-//This loops through the array, printing the 4-digit int at the index. This loop also does some formatting so that it looks nice.
-for(int x = 0; x < 100; x++){
-
-
-if(x == 0){
-printf("\n %d", x);//making first row align properly
-}
-
-if(x % 10 == 0 && x != 0){//prints row numbers
-printf("\n%d", x);
-}
-
-printf("   %04d  ",arr[x]);
-
-}//end of for loop
-printf("\n");
-}//End of dump() method
-
-
-
-
 //Main Method
 int main(int argc, char *argv[]) {
 intro();
 input();
-dump();
-run();
 dump();
  }
