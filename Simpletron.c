@@ -68,26 +68,67 @@ void write(int location){
     printf("info is %d",arr[location]);
 }
 void load(int location){
-    accumulator=arr[location];
+	if(accumulator < 10000 && accumulator > -10000){
+    		accumulator=arr[location];
+	}
+	else{
+		printf("*** Accumulator out of bounds ***\n*** Simpletron execution abnormally terminated ***\n");
+		dump();
+		exit(0);
+	}
 }
 void store(int location){
     arr[location]=accumulator;
 }
 void add(int location){
     accumulator=arr[location]+accumulator;
+//checks for accumulator out of bounds
+       if(accumulator < 10000 && accumulator > -10000){
+//if it is in bounds do nothing
+        }
+        else{//otherwise print error and exit
+                printf("*** Accumulator out of bounds ***\n*** Simpletron execution abnormally terminated ***\n");
+                dump();
+                exit(0);
+        }
+
 }
 void subtract(int location){
     accumulator=accumulator-arr[location];
+//checks for accumulator out of bounds
+       if(accumulator < 10000 && accumulator > -10000){
+//if it is in bounds do nothing
+        }
+        else{//otherwise print error and exit
+                printf("*** Accumulator out of bounds ***\n*** Simpletron execution abnormally terminated ***\n");
+                dump();
+                exit(0);
+        }
 }
 void divide(int location){
 int temp = arr[location];
+//Checks for fatal error: dividing by 0
+if(accumulator == 0){
+printf("*** Attempt to divide by zero ***\n*** Simpletron execution abnormally terminated ***\n");
+dump();
+exit(0);
+}
+else{
 temp = temp / accumulator;
-accumulator = temp;
+accumulator = temp;}
 }
 void multiply(int location){
 int temp = arr[location];
 temp = temp * accumulator;
-accumulator = temp;
+       if(temp < 10000 && temp > -10000){
+		accumulator = temp;
+        }
+        else{//otherwise print error and exit
+                printf("*** Accumulator out of bounds ***\n*** Simpletron execution abnormally terminated ***\n");
+                dump();
+                exit(0);
+        }
+
 }
 void branch(int location){
 instructionCounter = location;
@@ -157,8 +198,10 @@ void run(){
             case 43:
                 halt(location);
                 break;
-            default: printf("pissoff\n");
-                break;
+            default: printf("*** Invalid Operation Code ***\n*** Simpletron execution abnormally terminated ***\n");
+               dump();
+	       exit(0);
+	       break;
         }
 
     }
