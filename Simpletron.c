@@ -59,9 +59,9 @@ printf("\n");
 
 void read(int location){
     int i;
-    printf("enter a number");
+    printf("enter a number\n");
     scanf("%d",&i);
-    printf("value is %d",i);
+    printf("value is %d\n",i);
     arr[location]=i;
 }
 void write(int location){
@@ -106,16 +106,15 @@ void subtract(int location){
         }
 }
 void divide(int location){
-int temp = arr[location];
-//Checks for fatal error: dividing by 0
-if(accumulator == 0){
-printf("*** Attempt to divide by zero ***\n*** Simpletron execution abnormally terminated ***\n");
-dump();
-exit(0);
-}
-else{
-temp = temp / accumulator;
-accumulator = temp;}
+    //Checks for fatal error: dividing by 0
+    if(arr[location] == 0){
+        printf("*** Attempt to divide by zero ***\n*** Simpletron execution abnormally terminated ***\n");
+        dump();
+        exit(0);
+    }
+    else{
+        accumulator/=arr[location];
+    }
 }
 void multiply(int location){
 int temp = arr[location];
@@ -166,8 +165,8 @@ void run(){
                 read(location);
                 break;
             case 11:
-                break;
                 write(location);
+                break;
             case 20:
                 load(location);
                 break;
@@ -239,5 +238,6 @@ printf("\n*** Program loading completed ***\n*** Program execution begins ***\n"
 int main(int argc, char *argv[]) {
 intro();
 input();
-dump();
+run();
+//dump();
  }
