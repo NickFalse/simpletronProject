@@ -115,8 +115,11 @@ exit(0);
 
 void run(){
     for(instructionCounter = 0; instructionCounter < 100; instructionCounter++){
-        int command = (arr[instructionCounter]-(arr[instructionCounter]%100))/100;
-        int location = getLocation(arr[instructionCounter]);
+        instructionRegister=arr[instructionCounter];
+        operationCode=instructionRegister/100;
+        int command = operationCode;
+        operand = instructionRegister%100;
+        int location=operand;
         switch(command){
             case 10:
                 read(location);
@@ -174,7 +177,8 @@ printf("%02d ? ",instructionCounter);
 scanf("%d", &arr[instructionCounter]);
 
 if(arr[instructionCounter] == -99999){
-break;
+    arr[instructionCounter]=0000;
+    break;
 }
 
 //checks for invalid numbers
